@@ -1,24 +1,43 @@
+"""
+NumPy Basics Demo
+Author: Rajesh K
+Description:
+Demonstrates core NumPy functionalities including array creation,
+data types, performance comparison, and dimensional operations.
+"""
+
 import numpy as np
 import timeit as t 
 
+# ===============================
+# Python list vs NumPy array
+# ===============================
+
 l = [1, 2, 3, 4 ]
 print('\n Python list - ',l)
-
 
 a = np.array(l)
 print('\n NumPy array - ',a)
 
 
+# ===============================
+# Performance comparison
+# ===============================
+
 arr = np.arange(100)
 arr_time_taken = t.timeit ('arr** 2', globals=globals(), number=1000)
-print( '\n time taken for numpy arr operation = ', arr_time_taken)
+print('\n time taken for numpy arr operation = ', arr_time_taken)
 print('\n numpy arr used for above operation =', arr)
 
 list_1 = list(range(100))
 print(list_1)
 list_time_taken = t.timeit ('[ i** 2 for i in list_1]', globals=globals(), number=1000)
-print( '\n time taken for python list operation= ', list_time_taken)
+print('\n time taken for python list operation= ', list_time_taken)
 
+
+# ===============================
+# NumPy Array dimensions
+# ===============================
 
 arr_1 = np.arange(10)
 print("\nNumpy Array arr_1 : ",arr_1) #Vector
@@ -49,6 +68,10 @@ print("Shape of Array: ", arr_3.shape)
 print("Size of Array: ", arr_3.size)
 
 
+# ===============================
+# Array creation methods
+# ===============================
+
 arr_4 = np.arange(start=2,stop=10,step=2)
 print("\n arange arr_4 = ",arr_4)
 
@@ -70,14 +93,23 @@ print("\n Diagonal Matrix arr_9 =\n",arr_9)
 diagonal_element_arr_2 = np.diag(arr_2) # To fetch diagonal elements from an Matrix
 print("\n Diagonal elements in arr_2 =",diagonal_element_arr_2)
 
+
+# ===============================
+# Random number generation
+# ===============================
+
 random_arr_1 = np.random.rand(5)       #Uniform distributed random number b/w (0,1)
 print("\n random_arr_1 = ",random_arr_1)
 
 random_arr_2 = np.random.randn(4)      #standard normal distributed random number b/w(−inf,+inf) mean = 0, standard deviation = 1
 print("\n random_arr_2 = ",random_arr_2)
 
-print("\n arr_4 = ",arr_4,"| dtype = ",arr_4.dtype )
 
+# ===============================
+# Data types exploration
+# ===============================
+
+print("\n arr_4 = ",arr_4,"| dtype = ",arr_4.dtype )
 print("\n arr_5 = ",arr_5,"| dtype = ",arr_5.dtype )
 
 complex_dtype_arr = np.array([1+2j,1+3j])
